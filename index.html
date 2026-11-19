@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- responsive: makes the page scale correctly on phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi &amp; Kin - Neighbourhood Cafe in Kuala Lumpur</title>
+    <!-- Google Fonts: Playfair Display for headings, Poppins for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- external CSS file (css folder) that holds every style rule -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ============ HEADER + NAVIGATION ============ -->
+    <header class="site-header">
+        <a href="#home" class="logo">Kopi <span>&amp;</span> Kin</a>
+        <!-- internal navigation: each link jumps to a section on this same page -->
+        <nav class="main-nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ============ HOME (HERO) SECTION ============ -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>Slow mornings,<br>good coffee, close to home.</h1>
+            <p>Kopi &amp; Kin is a neighbourhood cafe in Taman Sejahtera, Kuala Lumpur.
+               We brew local kopi and specialty coffee side by side.</p>
+            <!-- button styled with CSS, jumps to the menu section -->
+            <a href="#products" class="btn">See our menu</a>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT SECTION ============ -->
+    <section id="about" class="about">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>Our story</h2>
+                <p>Kopi &amp; Kin started in 2024 as a tiny takeaway counter run by two siblings,
+                   Aiman and Mei Ling. "Kopi" is for our parents' traditional coffee stall,
+                   and "Kin" is for family - because that is how we treat our regulars.</p>
+                <p>Today we roast twice a week and serve everything from a classic
+                   kopi-o to single-origin pour-overs. Stay for five minutes or five hours;
+                   the corner seat by the window is yours.</p>
+
+                <!-- embedded video: recorded in our cafe, shown with the HTML5 video element -->
+                <figure class="video-box">
+                    <video controls poster="images/hero.jpg" preload="metadata">
+                        <source src="videos/coffee-pour.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <figcaption>Watch Mei Ling pour a latte heart (5s clip).</figcaption>
+                </figure>
+            </div>
+            <div class="about-photo">
+                <img src="images/barista.jpg" alt="Our barista pouring latte art at the counter">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PRODUCTS / MENU SECTION ============ -->
+    <!-- three cards use the same structure: repeated pattern (Repetition principle) -->
+    <section id="products" class="products">
+        <h2>What we serve</h2>
+        <p class="section-intro">Three favourites our regulars keep coming back for.</p>
+        <div class="card-grid">
+            <article class="card">
+                <img src="images/kopi.jpg" alt="Traditional white coffee with kaya toast">
+                <h3>Signature Kopi Set</h3>
+                <p>Traditional white coffee brewed in a sock filter, served with
+                   kaya toast. RM 9.90.</p>
+                <span class="tag">Best seller</span>
+            </article>
+            <article class="card">
+                <img src="images/pandan.jpg" alt="Iced pandan latte with green and white layers">
+                <h3>Iced Pandan Latte</h3>
+                <p>House pandan syrup layered over cold milk and a double espresso.
+                   RM 12.50.</p>
+                <span class="tag">New</span>
+            </article>
+            <article class="card">
+                <img src="images/corner.jpg" alt="Quiet cafe corner with coffee and a book">
+                <h3>Quiet Corner Combo</h3>
+                <p>Any brew plus one hour at our window seat, with the shelf of
+                   shared books. RM 15.00.</p>
+                <span class="tag">Weekdays only</span>
+            </article>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT SECTION ============ -->
+    <section id="contact" class="contact">
+        <h2>Find us &amp; say hello</h2>
+        <div class="contact-grid">
+
+            <!-- contact details with inline SVG icons (graphical elements) -->
+            <div class="contact-info">
+                <p class="info-line">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/>
+                    </svg>
+                    12 Jalan Kenari 3, Taman Sejahtera, 57000 Kuala Lumpur
+                </p>
+                <p class="info-line">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2a9 9 0 1 0 9 9 9 9 0 0 0-9-9zm0 16.5A7.5 7.5 0 1 1 19.5 11 7.5 7.5 0 0 1 12 18.5zM12 6v5.2l4 2.4-.8 1.3L11 12V6z"/>
+                    </svg>
+                    Open Tue-Sun, 8.00 am - 6.00 pm (closed Mondays)
+                </p>
+                <p class="info-line">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5z"/>
+                    </svg>
+                    hello@kopikin.example.com
+                </p>
+            </div>
+
+            <!-- simple contact form (display only - it does not send data) -->
+            <form class="contact-form" action="#" method="post">
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="name" placeholder="e.g. Sarah Tan" required>
+
+                <label for="email">Your email</label>
+                <input type="email" id="email" name="email" placeholder="e.g. sarah@email.com" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4"
+                          placeholder="Booking, catering or just a hello..."></textarea>
+
+                <button type="submit" class="btn">Send message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Kopi &amp; Kin Cafe &middot; Taman Sejahtera, Kuala Lumpur</p>
+    </footer>
+
+    <!-- external JavaScript file (js folder): nav highlight + form confirmation -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>

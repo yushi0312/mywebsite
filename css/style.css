@@ -1,0 +1,281 @@
+/* ---- CSS variables: define the colour scheme once, reuse everywhere (Repetition) ---- */
+:root {
+    --espresso: #3E2C23;
+    --cream:    #FAF3E7;
+    --white:    #FFFFFF;
+    --pandan:   #4F7A5B;
+    --caramel:  #C68B4E;
+    --heading-font: 'Playfair Display', Georgia, serif;
+    --body-font:    'Poppins', Arial, sans-serif;
+}
+
+/* ---- Global reset: remove default browser spacing ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;   /* nav links glide to sections instead of jumping */
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--espresso);
+    background-color: var(--cream);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    color: var(--espresso);
+}
+
+/* every section shares the same inner width and spacing (Alignment / Proximity) */
+section {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 64px 24px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+/* ---- Header with sticky navigation ---- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background-color: var(--cream);
+    border-bottom: 2px solid var(--caramel);
+}
+
+.logo {
+    font-family: var(--heading-font);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--espresso);
+    text-decoration: none;
+}
+
+.logo span { color: var(--caramel); }
+
+.main-nav a {
+    margin-left: 22px;
+    text-decoration: none;
+    color: var(--espresso);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.main-nav a:hover,
+.main-nav a.active { color: var(--pandan); }   /* interactive feedback + current-section highlight (set by js/script.js) */
+
+/* ---- Hero (Home) section: full-width photo with text overlay ---- */
+.hero {
+    /* the hero image fills the whole section behind the text */
+    background:
+        linear-gradient(rgba(62, 44, 35, 0.55), rgba(62, 44, 35, 0.55)),
+        url("images/hero.jpg") center / cover no-repeat;
+    color: var(--white);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    max-width: none;          /* hero breaks out of the normal section width */
+}
+
+.hero-text { max-width: 640px; padding: 24px; }
+
+.hero h1 {
+    color: var(--white);
+    font-size: 2.6rem;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.hero p { margin-bottom: 24px; }
+
+/* shared button style: one rule reused by every button (Repetition) */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--caramel);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn:hover { background-color: var(--pandan); }
+
+/* ---- About section: text + photo side by side ---- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;   /* 60/40 split on desktop */
+    gap: 32px;
+    align-items: start;
+}
+
+.about-text p { margin-bottom: 14px; }
+
+.about-photo img {
+    width: 100%;              /* responsive: image shrinks with its container */
+    height: auto;
+    border-radius: 8px;
+}
+
+/* embedded video keeps its own width responsive too */
+.video-box video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.video-box figcaption {
+    font-size: 0.85rem;
+    color: var(--pandan);
+    margin-top: 6px;
+}
+
+/* ---- Products section: three equal cards in a responsive grid ---- */
+.section-intro { margin-bottom: 28px; }
+
+.card-grid {
+    display: grid;
+    /* auto-fit + minmax: cards reflow from 3 columns to 1 on a phone */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(62, 44, 35, 0.12);
+    /* groups each card's parts close together (Proximity) */
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;        /* crops without stretching */
+}
+
+.card h3, .card p { padding: 0 18px; }
+.card h3 { margin-top: 16px; font-size: 1.15rem; }
+.card p  { margin-top: 8px; flex-grow: 1; }
+
+.tag {
+    align-self: flex-start;
+    margin: 14px 18px 18px;
+    padding: 4px 12px;
+    background-color: var(--pandan);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 999px;
+}
+
+/* ---- Contact section ---- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.info-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+/* inline SVG icons inherit the accent colour */
+.icon {
+    width: 22px;
+    height: 22px;
+    fill: var(--caramel);
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+/* form fields: labelled inputs with consistent spacing */
+.contact-form label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 14px 0 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #E4D5C0;
+    border-radius: 6px;
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    background-color: var(--white);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--pandan);   /* clear focus state for accessibility */
+    outline: none;
+}
+
+.contact-form .btn { margin-top: 18px; }
+
+/* confirmation message shown by js/script.js after the form is submitted */
+.form-note {
+    margin-top: 14px;
+    color: var(--pandan);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+    background-color: var(--espresso);
+    color: var(--cream);
+    text-align: center;
+    padding: 18px;
+    font-size: 0.85rem;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN: tablet and phone breakpoint (768px)
+   below this width, the two-column grids stack into one column
+   ============================================================ */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 1.9rem; }
+
+    /* on narrow screens the nav drops below the logo so nothing overflows */
+    .site-header {
+        flex-direction: column;
+        gap: 6px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .main-nav a { margin-left: 10px; font-size: 0.85rem; }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;   /* single column on small screens */
+    }
+
+    section { padding: 44px 18px; }
+}
